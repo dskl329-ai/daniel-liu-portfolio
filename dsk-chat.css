@@ -45,7 +45,7 @@
   z-index: 9997;
   flex-direction: column;
   overflow: hidden;
-  font-family: Optima, 'Alegreya Sans', 'Segoe UI', system-ui, sans-serif;
+  font-family: Optima, 'Alegreya Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 .dsk-chat-panel.open {
   display: flex;
