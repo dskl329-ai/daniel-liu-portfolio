@@ -122,7 +122,11 @@
           escalationOffered = false;
           setInputEnabled(true);
           stopPolling();
-          inputEl.placeholder = 'Ask another question...';
+          if (data.directChat) {
+            inputEl.placeholder = 'Reply to Mr Liu directly...';
+          } else {
+            inputEl.placeholder = 'Ask another question...';
+          }
           inputEl.maxLength = 500;
         } else if (!data.awaitingDan && awaitingDan) {
           // Dan hasn't replied yet, stop polling if we timed out
