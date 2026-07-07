@@ -75,7 +75,9 @@
   // ── Helpers ──────────────────────────────────────────────────────
   function addMessage(text, role) {
     const div = document.createElement('div');
-    div.className = 'dsk-chat-msg ' + role;
+    // Worker returns 'assistant' — map to 'bot' for CSS compatibility
+    const cssRole = (role === 'assistant') ? 'bot' : role;
+    div.className = 'dsk-chat-msg ' + cssRole;
     div.textContent = text;
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
