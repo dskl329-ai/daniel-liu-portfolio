@@ -104,10 +104,13 @@
 .dsk-chat-msg.bot {
   align-self: flex-start;
   background: #ffffff;
-  color: #1a1a1a;
+  color: #111111;
   border-bottom-left-radius: 4px;
-  font-weight: 450;
+  font-weight: 500;
   box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .dsk-chat-msg.user {
   align-self: flex-end;
@@ -118,10 +121,11 @@
 .dsk-chat-msg.dan {
   align-self: flex-start;
   background: #dae5f5;
-  color: #1a1a1a;
+  color: #111111;
   border-bottom-left-radius: 4px;
   border-left: 3px solid #2c5f8a;
-  font-weight: 450;
+  font-weight: 500;
+  opacity: 1;
 }
 .dsk-chat-msg.system {
   align-self: center;
