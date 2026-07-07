@@ -173,6 +173,13 @@
         setInputEnabled(true);
         inputEl.placeholder = 'Type yes to forward, or ask another question...';
         inputEl.maxLength = 50;
+      } else if (data.directChat) {
+        // Dan replied — visitor can now reply back directly
+        awaitingDan = false;
+        escalationOffered = false;
+        setInputEnabled(true);
+        inputEl.placeholder = 'Reply to Mr Liu directly...';
+        inputEl.maxLength = 500;
       } else if (data.escalated && data.awaitingDan) {
         // Conversation has been forwarded
         awaitingDan = true;
