@@ -80,7 +80,7 @@
 .dsk-chat-header-info p {
   margin: 2px 0 0;
   font-size: 0.8rem;
-  opacity: 0.7;
+  color: #ccc;
 }
 
 /* Messages area */
@@ -103,9 +103,10 @@
 }
 .dsk-chat-msg.bot {
   align-self: flex-start;
-  background: #ecece6;
-  color: #2a2a2a;
+  background: #e8e4de;
+  color: #1a1a1a;
   border-bottom-left-radius: 4px;
+  font-weight: 450;
 }
 .dsk-chat-msg.user {
   align-self: flex-end;
@@ -115,15 +116,16 @@
 }
 .dsk-chat-msg.dan {
   align-self: flex-start;
-  background: #dce8f7;
-  color: #2a2a2a;
+  background: #dae5f5;
+  color: #1a1a1a;
   border-bottom-left-radius: 4px;
-  border-left: 3px solid #3a6ea5;
+  border-left: 3px solid #2c5f8a;
+  font-weight: 450;
 }
 .dsk-chat-msg.system {
   align-self: center;
   background: transparent;
-  color: #888;
+  color: #666;
   font-size: 0.8rem;
   font-style: italic;
   text-align: center;
@@ -231,6 +233,9 @@
 }
 .dsk-chat-input-area input:focus {
   border-color: #1a1a1a;
+}
+.dsk-chat-input-area input::placeholder {
+  color: #999;
 }
 .dsk-chat-input-area button {
   width: 42px;
