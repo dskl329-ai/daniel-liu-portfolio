@@ -109,7 +109,12 @@
     .skip-link:focus { top: 0; }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      touch-action: manipulation;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
     body {
       background-color: var(--bg-primary);
       color: var(--text-primary);
@@ -118,6 +123,7 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      touch-action: pan-x pan-y;
     }
 
     /* Focus styles for accessibility */
