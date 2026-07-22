@@ -977,6 +977,8 @@
     if (window.location.hostname === 'dskl329-ai.github.io') {
       window.location.replace('https://danskliu.com' + window.location.pathname);
     }
+    // Prevent pinch-to-zoom (iOS Safari ignores CSS touch-action)
+    document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
   </script>
 </head>
 <body>
