@@ -189,9 +189,9 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: #1a1a1a;
+      background: var(--bg-primary);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid var(--border);
     }
 
     nav[role="navigation"] {
@@ -205,7 +205,7 @@
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: #ffffff;
+      color: var(--text-primary);
     }
 
     .nav-links {
@@ -217,7 +217,7 @@
     .nav-links a {
       font-size: 0.85rem;
       font-weight: 500;
-      color: #aaaaaa;
+      color: var(--text-secondary);
       padding: var(--spacing-xs) 0;
       text-decoration: none;
       letter-spacing: 0.05em;
@@ -226,14 +226,14 @@
 
     .nav-links a:hover,
     .nav-links a:focus {
-      color: #ffffff;
+      color: var(--text-primary);
     }
 
     .mobile-menu-btn {
       display: none;
       background: none;
-      border: 1px solid #444;
-      color: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
       font-size: 1.5rem;
       cursor: pointer;
       padding: 0.25rem 0.75rem;
@@ -513,7 +513,7 @@
     }
 
     .expertise-card {
-      background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-subtle) 100%);
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-subtle) 50%, var(--bg-card) 100%);
     }
 
     /* Grid spans - rebalanced for visual rhythm */
@@ -544,6 +544,7 @@
 
     .pub-item:hover {
       box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
     }
 
     .pub-title {
@@ -694,14 +695,14 @@
     .academic-grid {
       display: grid;
       gap: var(--spacing-md);
-      margin-top: var(--spacing-lg);
+      margin-top: var(--spacing-md);
     }
 
     .academic-card {
       padding: var(--spacing-md);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-subtle) 100%);
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-subtle) 50%, var(--bg-card) 100%);
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
     }
@@ -853,9 +854,6 @@
       .cta-button:hover { color: var(--accent); }
       .hero {
         background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-      }
-      .academic-card {
-        background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
       }
       a { color: var(--accent); }
       .pub-journal a { color: var(--accent); }
