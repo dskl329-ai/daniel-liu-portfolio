@@ -859,36 +859,136 @@
       }
       a { color: var(--accent); }
       .pub-journal a { color: var(--accent); }
+    }
 
-    details.pub-abstract {
-      margin-top: var(--spacing-xs);
+  details.pub-abstract {
+    margin-top: var(--spacing-xs);
+  }
+  details.pub-abstract summary {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+  }
+  details.pub-abstract summary::-webkit-details-marker { display: none; }
+  details.pub-abstract summary::before {
+    content: '▸ ';
+  }
+  details.pub-abstract[open] summary::before {
+    content: '▾ ';
+  }
+  details.pub-abstract summary:hover {
+    color: var(--text-primary);
+  }
+  details.pub-abstract p {
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+    padding-top: var(--spacing-xs);
+    border-top: 1px solid var(--border);
+  }
+
+    /* ── Scholar Metrics Banner ── */
+    .scholar-banner {
+      margin: var(--spacing-md) 0 0 0;
+      padding: var(--spacing-md);
+      background: linear-gradient(135deg, var(--accent-subtle) 0%, var(--bg-card) 50%, var(--accent-light) 100%);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      box-shadow: 0 0 24px rgba(77, 168, 255, 0.08);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    details.pub-abstract summary {
-      font-size: 0.85rem;
-      font-weight: 600;
+    .scholar-banner::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      width: 120%;
+      height: 160%;
+      background: radial-gradient(ellipse at center, var(--accent-light) 0%, transparent 70%);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .scholar-banner-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .scholar-banner-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--accent);
-      cursor: pointer;
-      list-style: none;
+      margin-bottom: var(--spacing-sm);
     }
-    details.pub-abstract summary::-webkit-details-marker { display: none; }
-    details.pub-abstract summary::before {
-      content: '▸ ';
+    .scholar-stats {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      flex-wrap: wrap;
     }
-    details.pub-abstract[open] summary::before {
-      content: '▾ ';
+    .scholar-stat {
+      text-align: center;
+      min-width: 110px;
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: var(--transition);
     }
-    details.pub-abstract summary:hover {
-      color: var(--text-primary);
+    .scholar-stat:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 16px rgba(77, 168, 255, 0.12);
+      transform: translateY(-1px);
     }
-    details.pub-abstract p {
-      font-style: normal;
-      font-size: 0.9rem;
-      line-height: 1.65;
+    .scholar-stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.1;
+      font-family: 'Alegreya Sans', Optima, 'Segoe UI', system-ui, sans-serif;
+    }
+    .scholar-stat-label {
+      font-size: 0.78rem;
       color: var(--text-secondary);
-      margin-top: var(--spacing-xs);
-      padding-top: var(--spacing-xs);
-      border-top: 1px solid var(--border);
+      margin-top: 0.25rem;
+      letter-spacing: 0.03em;
     }
+    .scholar-banner-footer {
+      margin-top: var(--spacing-sm);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      opacity: 0.8;
+    }
+    .scholar-banner-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .scholar-banner-footer a:hover {
+      text-decoration: underline;
+    }
+    .scholar-loading {
+      padding: var(--spacing-sm) 0;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    .scholar-error {
+      display: none;
+      padding: var(--spacing-sm) 0;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+    @media (max-width: 768px) {
+      .scholar-stats { gap: var(--spacing-sm); }
+      .scholar-stat { min-width: 90px; padding: var(--spacing-sm); }
+      .scholar-stat-value { font-size: 1.5rem; }
+      .scholar-stat-label { font-size: 0.7rem; }
     }
 
   </style>
@@ -1110,6 +1210,23 @@
         </div>
       </div>
 
+      <!-- Scholar Metrics Banner -->
+      <div class="container" style="margin-top: 0;">
+        <div class="scholar-banner fade-in" id="scholarBanner">
+          <div class="scholar-banner-inner">
+            <div class="scholar-banner-label">Google Scholar Metrics</div>
+            <div class="scholar-stats" id="scholarStats">
+              <div class="scholar-loading">Loading metrics…</div>
+            </div>
+            <div class="scholar-error" id="scholarError">Metrics temporarily unavailable</div>
+            <div class="scholar-banner-footer">
+              <span id="scholarUpdated"></span>
+              <span class="scholar-link"><a href="https://scholar.google.com/citations?user=jSKpmWcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">View on Google Scholar &rarr;</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="research-focus">
         <div class="container">
           <h3>Research Focus: Extracellular Vesicles and microRNA Biomarkers</h3>
@@ -1273,7 +1390,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Daniel Liucopy; 2026 Daniel Si Kit Liu. Content reflects position as of July 2026.</p>
+      <p>&copy; 2026 Daniel Si Kit Liu. Content reflects position as of July 2026.</p>
     </div>
   </footer>
 
@@ -1396,5 +1513,49 @@
 
   </script>
   <script src="dsk-chat.js"></script>
+  <!-- Scholar metrics loader -->
+  <script>
+    (function() {
+      var statsEl = document.getElementById('scholarStats');
+      var errorEl = document.getElementById('scholarError');
+      var updatedEl = document.getElementById('scholarUpdated');
+
+      function renderStat(value, label) {
+        return '<div class="scholar-stat">' +
+          '<div class="scholar-stat-value">' + (value != null ? value : '—') + '</div>' +
+          '<div class="scholar-stat-label">' + label + '</div>' +
+          '</div>';
+      }
+
+      function showError() {
+        if (statsEl) statsEl.style.display = 'none';
+        if (errorEl) errorEl.style.display = 'block';
+      }
+
+      fetch('scholar-metrics.json')
+        .then(function(r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function(m) {
+          if (!statsEl) return;
+          statsEl.innerHTML =
+            renderStat(m.hindex, 'h-index') +
+            renderStat(m.citedby, 'Citations') +
+            renderStat(m.i10index, 'i10-index') +
+            renderStat(m.publications, 'Publications');
+          if (updatedEl) {
+            var d = m.lastUpdated || '';
+            updatedEl.textContent = d ? 'Updated ' + d : '';
+            if (m.source) {
+              updatedEl.textContent += ' · ' + m.source;
+            }
+          }
+        })
+        .catch(function() {
+          showError();
+        });
+    })();
+  </script>
 </body>
 </html>
