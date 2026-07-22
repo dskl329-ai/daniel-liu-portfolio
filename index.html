@@ -891,106 +891,88 @@
     border-top: 1px solid var(--border);
   }
 
-    /* ── Scholar Metrics Banner ── */
-    .scholar-banner {
-      margin: var(--spacing-md) 0 0 0;
-      padding: var(--spacing-md);
-      background: linear-gradient(135deg, var(--accent-subtle) 0%, var(--bg-card) 50%, var(--accent-light) 100%);
-      border: 1px solid var(--accent);
-      border-radius: var(--radius);
-      box-shadow: 0 0 24px rgba(77, 168, 255, 0.08);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    /* ── Scholar Metrics Grid ── */
+    .scholar-grid-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
     }
-    .scholar-banner::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      left: -10%;
-      width: 120%;
-      height: 160%;
-      background: radial-gradient(ellipse at center, var(--accent-light) 0%, transparent 70%);
-      opacity: 0.4;
-      pointer-events: none;
-    }
-    .scholar-banner-inner {
-      position: relative;
-      z-index: 1;
-    }
-    .scholar-banner-label {
-      font-size: 0.75rem;
+    .scholar-grid-title {
+      font-size: 0.78rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: var(--spacing-sm);
     }
-    .scholar-stats {
-      display: flex;
-      gap: var(--spacing-md);
-      justify-content: center;
-      flex-wrap: wrap;
+    .scholar-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-sm);
     }
-    .scholar-stat {
-      text-align: center;
-      min-width: 110px;
-      padding: var(--spacing-sm) var(--spacing-md);
-      background: var(--bg-card);
+    .scholar-card {
+      padding: var(--spacing-md);
       border: 1px solid var(--border);
       border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-subtle) 50%, var(--bg-card) 100%);
+      box-shadow: var(--shadow-sm);
       transition: var(--transition);
+      text-align: center;
     }
-    .scholar-stat:hover {
+    .scholar-card:hover {
+      box-shadow: var(--shadow-md);
       border-color: var(--accent);
-      box-shadow: 0 0 16px rgba(77, 168, 255, 0.12);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
-    .scholar-stat-value {
-      font-size: 2rem;
+    .scholar-card-value {
+      font-size: 2.2rem;
       font-weight: 800;
       color: var(--accent);
       line-height: 1.1;
       font-family: 'Alegreya Sans', Optima, 'Segoe UI', system-ui, sans-serif;
     }
-    .scholar-stat-label {
+    .scholar-card-label {
       font-size: 0.78rem;
       color: var(--text-secondary);
-      margin-top: 0.25rem;
+      margin-top: 0.35rem;
       letter-spacing: 0.03em;
     }
-    .scholar-banner-footer {
+    .scholar-grid-footer {
       margin-top: var(--spacing-sm);
       font-size: 0.72rem;
       color: var(--text-secondary);
-      opacity: 0.8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
     }
-    .scholar-banner-footer a {
+    .scholar-grid-footer a {
       color: var(--accent);
       text-decoration: none;
     }
-    .scholar-banner-footer a:hover {
+    .scholar-grid-footer a:hover {
       text-decoration: underline;
     }
     .scholar-loading {
-      padding: var(--spacing-sm) 0;
+      grid-column: 1 / -1;
+      padding: var(--spacing-md);
       color: var(--text-secondary);
       font-size: 0.85rem;
-    }
-    .scholar-error {
-      display: none;
-      padding: var(--spacing-sm) 0;
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-      font-style: italic;
+      text-align: center;
     }
     @media (max-width: 768px) {
-      .scholar-stats { gap: var(--spacing-sm); }
-      .scholar-stat { min-width: 90px; padding: var(--spacing-sm); }
-      .scholar-stat-value { font-size: 1.5rem; }
-      .scholar-stat-label { font-size: 0.7rem; }
+      .scholar-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+      }
+      .scholar-card { padding: var(--spacing-sm); }
+      .scholar-card-value { font-size: 1.6rem; }
+      .scholar-card-label { font-size: 0.7rem; }
     }
-
+    @media (max-width: 480px) {
+      .scholar-stats-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
   <link rel="stylesheet" href="dsk-chat.css">
   <script>
@@ -1210,27 +1192,24 @@
         </div>
       </div>
 
-      <!-- Scholar Metrics Banner -->
-      <div class="container" style="margin-top: 0;">
-        <div class="scholar-banner fade-in" id="scholarBanner">
-          <div class="scholar-banner-inner">
-            <div class="scholar-banner-label">Google Scholar Metrics</div>
-            <div class="scholar-stats" id="scholarStats">
-              <div class="scholar-loading">Loading metrics…</div>
-            </div>
-            <div class="scholar-error" id="scholarError">Metrics temporarily unavailable</div>
-            <div class="scholar-banner-footer">
-              <span id="scholarUpdated"></span>
-              <span class="scholar-link"><a href="https://scholar.google.com/citations?user=jSKpmWcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">View on Google Scholar &rarr;</a></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="research-focus">
         <div class="container">
           <h3>Research Focus: Extracellular Vesicles and microRNA Biomarkers</h3>
           <p style="margin-top: 0.5rem;">My PhD research and ongoing work investigate small membrane-bound particles (extracellular vesicles) as liquid biopsies for early cancer detection. Specifically, I study microRNA signatures in plasma and bile for pancreaticobiliary malignancies.</p>
+        </div>
+      </div>
+
+      <!-- Scholar Metrics Grid -->
+      <div class="container">
+        <div class="scholar-grid-header fade-in">
+          <span class="scholar-grid-title">Google Scholar Metrics</span>
+        </div>
+        <div class="scholar-stats-grid fade-in" id="scholarStats">
+          <div class="scholar-loading">Loading metrics…</div>
+        </div>
+        <div class="scholar-grid-footer">
+          <span id="scholarUpdated"></span>
+          <a href="https://scholar.google.com/citations?user=jSKpmWcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">View on Google Scholar &rarr;</a>
         </div>
       </div>
 
@@ -1517,19 +1496,13 @@
   <script>
     (function() {
       var statsEl = document.getElementById('scholarStats');
-      var errorEl = document.getElementById('scholarError');
       var updatedEl = document.getElementById('scholarUpdated');
 
-      function renderStat(value, label) {
-        return '<div class="scholar-stat">' +
-          '<div class="scholar-stat-value">' + (value != null ? value : '—') + '</div>' +
-          '<div class="scholar-stat-label">' + label + '</div>' +
+      function renderCard(value, label) {
+        return '<div class="scholar-card">' +
+          '<div class="scholar-card-value">' + (value != null ? value : '—') + '</div>' +
+          '<div class="scholar-card-label">' + label + '</div>' +
           '</div>';
-      }
-
-      function showError() {
-        if (statsEl) statsEl.style.display = 'none';
-        if (errorEl) errorEl.style.display = 'block';
       }
 
       fetch('scholar-metrics.json')
@@ -1540,10 +1513,10 @@
         .then(function(m) {
           if (!statsEl) return;
           statsEl.innerHTML =
-            renderStat(m.hindex, 'h-index') +
-            renderStat(m.citedby, 'Citations') +
-            renderStat(m.i10index, 'i10-index') +
-            renderStat(m.publications, 'Publications');
+            renderCard(m.hindex, 'h-index') +
+            renderCard(m.citedby, 'Citations') +
+            renderCard(m.i10index, 'i10-index') +
+            renderCard(m.publications, 'Publications');
           if (updatedEl) {
             var d = m.lastUpdated || '';
             updatedEl.textContent = d ? 'Updated ' + d : '';
@@ -1553,7 +1526,9 @@
           }
         })
         .catch(function() {
-          showError();
+          if (statsEl) {
+            statsEl.innerHTML = '<div class="scholar-loading">Metrics temporarily unavailable</div>';
+          }
         });
     })();
   </script>
