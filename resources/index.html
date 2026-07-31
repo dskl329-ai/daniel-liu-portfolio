@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surgical Resources — Daniel Liu, MA (Cantab), MBBS, PhD, FRCS (Eng)</title>
+  <meta name="description" content="Curated surgical resources: consent checklists, technique videos, and online atlases for surgeons and surgical trainees.">
+  <link rel="canonical" href="https://danskliu.com/resources/">
+  <meta property="og:title" content="Surgical Resources — Daniel Liu">
+  <meta property="og:description" content="Curated surgical resources: consent checklists, technique videos, and online atlases.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #f4f4f0; --bg-secondary: #ecece6; --bg-card: #ffffff;
+      --text-primary: #1a1a1a; --text-secondary: #666;
+      --accent: #2563eb; --accent-light: #dbeafe; --accent-subtle: #eff6ff;
+      --border: #e5e5e0; --radius: 8px; --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --spacing-xs: 0.5rem; --spacing-sm: 1rem; --spacing-md: 2rem; --spacing-lg: 3rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Optima, 'Alegreya Sans', 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg-primary); color: var(--text-primary); line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      background: #1a1a1a; border-bottom: 1px solid #333;
+      padding: 0.85rem 0; position: sticky; top: 0; z-index: 100;
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 960px; margin: 0 auto; padding: 0 var(--spacing-sm);
+    }
+    nav .logo { color: #fff; font-size: 1.05rem; font-weight: 700; text-decoration: none; }
+    nav .back { color: #aaa; font-size: 0.9rem; text-decoration: none; }
+    nav .back:hover { color: #fff; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 var(--spacing-sm); }
+
+    /* Page header */
+    .page-header {
+      padding: var(--spacing-lg) 0 var(--spacing-md);
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem;
+    }
+    .page-header p {
+      font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;
+    }
+
+    /* TOC */
+    .toc {
+      display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;
+      margin-bottom: var(--spacing-lg);
+    }
+    .toc a {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 0.5rem 1.25rem; font-size: 0.9rem; font-weight: 600; color: var(--text-primary);
+      text-decoration: none; transition: all 0.2s;
+    }
+    .toc a:hover { background: var(--accent-light); border-color: var(--accent); }
+
+    /* Section */
+    section {
+      margin-bottom: var(--spacing-lg);
+      scroll-margin-top: 80px;
+    }
+    section h2 {
+      font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em;
+      padding-bottom: 0.5rem; border-bottom: 3px solid var(--accent);
+      margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: 0.5rem;
+    }
+    section h2 .emoji { font-size: 1.3rem; }
+
+    /* Resource cards */
+    .card-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--spacing-sm);
+    }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: var(--spacing-md); box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-color: var(--accent); }
+
+    .card h3 {
+      font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-primary);
+    }
+    .card .card-cat {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.5; }
+
+    .card ul {
+      list-style: none; margin-bottom: 1rem;
+    }
+    .card ul li {
+      font-size: 0.88rem; color: var(--text-secondary); padding: 0.25rem 0;
+      border-bottom: 1px solid var(--border); line-height: 1.4;
+    }
+    .card ul li:last-child { border-bottom: none; }
+    .card ul li strong { color: var(--text-primary); }
+    .card ul li small { color: #999; display: block; }
+
+    .card .card-link {
+      display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--accent);
+      text-decoration: none; margin-top: 0.25rem;
+    }
+    .card .card-link:hover { text-decoration: underline; }
+
+    /* Video embed */
+    .video-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-sm);
+    }
+    .video-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+    }
+    .video-card .video-wrapper {
+      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;
+    }
+    .video-card .video-wrapper iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+    }
+    .video-card .video-info {
+      padding: var(--spacing-sm);
+    }
+    .video-card .video-info h3 {
+      font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem;
+    }
+    .video-card .video-info p {
+      font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4;
+    }
+
+    /* Atlas links */
+    .link-list {
+      list-style: none; display: flex; flex-direction: column; gap: var(--spacing-sm);
+    }
+    .link-list li a {
+      display: flex; align-items: baseline; gap: 0.5rem;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: var(--spacing-sm) var(--spacing-md); text-decoration: none;
+      box-shadow: var(--shadow-sm); transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .link-list li a:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-color: var(--accent); }
+    .link-list li a .link-icon {
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .link-list li a .link-text strong {
+      display: block; color: var(--text-primary); font-size: 0.95rem;
+    }
+    .link-list li a .link-text span {
+      color: var(--text-secondary); font-size: 0.82rem; line-height: 1.4;
+    }
+
+    .disclaimer {
+      margin-top: var(--spacing-lg); padding: var(--spacing-md);
+      background: var(--accent-subtle); border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;
+    }
+    .disclaimer strong { color: var(--text-primary); }
+
+    footer {
+      text-align: center; padding: var(--spacing-lg) 0; color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 1.5rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script>
+    if (window.location.hostname === 'dskl329-ai.github.io') {
+      window.location.replace('https://danskliu.com' + window.location.pathname);
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">Daniel Liu</a>
+      <a href="/" class="back">← Home</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1>Surgical Resources</h1>
+      <p>Curated tools and references for surgeons and surgical trainees — consent checklists, technique videos, and online atlases.</p>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="toc" aria-label="Resource categories">
+      <a href="#consent">✍️ Consent Checklists</a>
+      <a href="#videos">🎬 Surgical Videos</a>
+      <a href="#atlases">📚 Online Atlases</a>
+    </nav>
+
+    <!-- Consent Checklists -->
+    <section id="consent">
+      <h2><span class="emoji">✍️</span> Consent Checklists — Risks &amp; Benefits</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-size: 0.9rem;">
+        Standardised summaries for commonly performed procedures. Designed for quick reference during consent conversations — not exhaustive, but covering the key points discussed in GMC-compliant consent. Always tailor to the individual patient.
+      </p>
+
+      <div class="card-grid">
+
+        <!-- Lap Chole -->
+        <div class="card">
+          <div class="card-cat">HPB / General Surgery</div>
+          <h3>Laparoscopic Cholecystectomy</h3>
+          <ul>
+            <li><strong>Benefits:</strong> Relief of biliary symptoms; prevention of recurrent cholecystitis, pancreatitis, or biliary colic</li>
+            <li><strong>Common (1–10%):</strong> Wound infection, port-site hernia, diarrhoea (post-cholecystectomy syndrome), minor bile leak</li>
+            <li><strong>Infrequent (&lt;1%):</strong> Bile duct injury, conversion to open, retained CBD stone, major haemorrhage, bowel injury, DVT/PE</li>
+            <li><strong>Very rare:</strong> Mortality (~0.1–0.3%), bile duct stricture, hepatic artery injury</li>
+          </ul>
+        </div>
+
+        <!-- Whipple -->
+        <div class="card">
+          <div class="card-cat">HPB Surgery</div>
+          <h3>Pancreaticoduodenectomy (Whipple)</h3>
+          <ul>
+            <li><strong>Benefits:</strong> Curative resection for pancreatic/periampullary malignancy; symptom palliation</li>
+            <li><strong>Common (10–40%):</strong> Delayed gastric emptying, pancreatic fistula (POPF), wound infection</li>
+            <li><strong>Infrequent (1–10%):</strong> Post-pancreatectomy haemorrhage, bile leak, intra-abdominal abscess, DVT/PE, pneumonia, new-onset diabetes</li>
+            <li><strong>Rare (&lt;1–3%):</strong> Mortality (1–3%), myocardial infarction, CVA, multi-organ failure</li>
+          </ul>
+        </div>
+
+        <!-- Distal Pancreatectomy -->
+        <div class="card">
+          <div class="card-cat">HPB Surgery</div>
+          <h3>Distal Pancreatectomy &amp; Splenectomy</h3>
+          <ul>
+            <li><strong>Benefits:</strong> Resection of pancreatic body/tail lesions; curative intent for malignancy</li>
+            <li><strong>Common (10–30%):</strong> Pancreatic fistula (POPF), splenectomy-related (thrombocytosis, OPSI risk)</li>
+            <li><strong>Infrequent (1–10%):</strong> Post-pancreatectomy haemorrhage, intra-abdominal collection/abscess, wound infection, new/worsened diabetes</li>
+            <li><strong>Rare (&lt;1%):</strong> Mortality (&lt;1%), gastric/colonic ischaemia, portal vein thrombosis</li>
+          </ul>
+        </div>
+
+        <!-- Liver Resection -->
+        <div class="card">
+          <div class="card-cat">HPB Surgery</div>
+          <h3>Liver Resection</h3>
+          <ul>
+            <li><strong>Benefits:</strong> Curative resection for primary or metastatic liver tumours; symptom control for large benign lesions</li>
+            <li><strong>Common (5–20%):</strong> Bile leak, wound infection, pleural effusion, transient liver dysfunction</li>
+            <li><strong>Infrequent (1–5%):</strong> Post-hepatectomy liver failure, haemorrhage, intra-abdominal collection, DVT/PE, incisional hernia</li>
+            <li><strong>Rare (&lt;1–3%):</strong> Mortality (1–3%), biliary stricture, hepatic artery thrombosis</li>
+          </ul>
+        </div>
+
+        <!-- ERCP -->
+        <div class="card">
+          <div class="card-cat">HPB / Gastroenterology</div>
+          <h3>ERCP ± Sphincterotomy</h3>
+          <ul>
+            <li><strong>Benefits:</strong> Clearance of CBD stones; biliary drainage for obstruction/stricture; diagnostic tissue sampling</li>
+            <li><strong>Common (5–10%):</strong> Post-ERCP pancreatitis, transient rise in amylase/lipase</li>
+            <li><strong>Infrequent (1–5%):</strong> Haemorrhage (post-sphincterotomy), cholangitis, duodenal perforation, stent migration</li>
+            <li><strong>Rare (&lt;1%):</strong> Mortality (~0.1–0.5%), severe necrotising pancreatitis, retroperitoneal perforation</li>
+          </ul>
+        </div>
+
+        <!-- Inguinal Hernia -->
+        <div class="card">
+          <div class="card-cat">General Surgery</div>
+          <h3>Inguinal Hernia Repair (Open / Laparoscopic)</h3>
+          <ul>
+            <li><strong>Benefits:</strong> Relief of symptoms; prevention of incarceration/strangulation; mesh reinforcement</li>
+            <li><strong>Common (1–10%):</strong> Seroma/haematoma, wound infection, chronic groin pain (10–12%), urinary retention</li>
+            <li><strong>Infrequent (&lt;1–2%):</strong> Recurrence, testicular atrophy/swelling, ilioinguinal nerve injury, mesh infection</li>
+            <li><strong>Very rare:</strong> Bowel/bladder injury, major vascular injury (laparoscopic), mortality</li>
+          </ul>
+        </div>
+
+        <!-- Appendicectomy -->
+        <div class="card">
+          <div class="card-cat">General Surgery</div>
+          <h3>Laparoscopic Appendicectomy</h3>
+          <ul>
+            <li><strong>Benefits:</strong> Definitive treatment of appendicitis; prevention of perforation and peritonitis</li>
+            <li><strong>Common (1–10%):</strong> Wound infection (especially if perforated), intra-abdominal collection, port-site hernia</li>
+            <li><strong>Infrequent (&lt;1–2%):</strong> Conversion to open, stump leak, bowel injury, negative appendicectomy</li>
+            <li><strong>Very rare:</strong> Mortality (&lt;0.1%), delayed recognition of alternative pathology</li>
+          </ul>
+        </div>
+
+        <!-- Right Hemicolectomy -->
+        <div class="card">
+          <div class="card-cat">Colorectal Surgery</div>
+          <h3>Right Hemicolectomy</h3>
+          <ul>
+            <li><strong>Benefits:</strong> Curative resection for right-sided colonic malignancy or large polyps not amenable to endoscopic resection</li>
+            <li><strong>Common (5–15%):</strong> Wound infection, ileus, incisional hernia</li>
+            <li><strong>Infrequent (1–5%):</strong> Anastomotic leak, intra-abdominal collection, DVT/PE, cardiac/respiratory complications</li>
+            <li><strong>Rare (&lt;1–2%):</strong> Mortality (elective &lt;2%), ureteric injury, duodenal injury, CVA</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Surgical Videos -->
+    <section id="videos">
+      <h2><span class="emoji">🎬</span> Surgical Technique Videos</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-size: 0.9rem;">
+        Curated high-quality operative videos demonstrating key techniques and anatomical landmarks.
+      </p>
+
+      <div class="video-grid">
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube-nocookie.com/embed/6RSiZTijT4k" title="Laparoscopic Cholecystectomy — Critical View of Safety"
+              allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Laparoscopic Cholecystectomy — Critical View of Safety</h3>
+            <p>Step-by-step demonstration of achieving the critical view (Strasberg) before clipping and dividing. Essential for safe cholecystectomy.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube-nocookie.com/embed/egWw2Z4s7x8" title="Pancreaticoduodenectomy (Whipple Procedure)"
+              allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Pancreaticoduodenectomy (Whipple Procedure)</h3>
+            <p>Demonstration of resection and reconstruction phases. Covers key anatomical relationships and anastomotic techniques.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube-nocookie.com/embed/bVuOMua60NU" title="Laparoscopic Inguinal Hernia Repair (TEP)"
+              allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Laparoscopic Inguinal Hernia Repair (TEP)</h3>
+            <p>Totally extraperitoneal approach — anatomical landmarks, mesh placement, and key steps to avoid recurrence.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube-nocookie.com/embed/E1ljClS0DhM" title="Laparoscopic Appendicectomy"
+              allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Laparoscopic Appendicectomy</h3>
+            <p>Standard three-port technique — mesoappendix dissection, Endo-loop or stapler control of the base, and safe specimen retrieval.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube-nocookie.com/embed/xDfAz6JmXfc" title="Laparoscopic Right Hemicolectomy — Stepwise Approach"
+              allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Right Hemicolectomy — Laparoscopic Medial-to-Lateral</h3>
+            <p>Standard medial-to-lateral approach: ileocolic pedicle identification, CME dissection, and anastomosis.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Online Atlases -->
+    <section id="atlases">
+      <h2><span class="emoji">📚</span> Online Atlases &amp; Anatomy References</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-size: 0.9rem;">
+        High-quality online resources for surgical anatomy, radiological correlation, and operative planning.
+      </p>
+
+      <ul class="link-list">
+        <li>
+          <a href="https://pie.med.utoronto.ca/TVASurg/" target="_blank" rel="noopener noreferrer">
+            <span class="link-icon">🎬</span>
+            <span class="link-text">
+              <strong>Toronto Video Atlas of Surgery (TVASurg)</strong>
+              <span>Open-access library of animation-enhanced surgical videos curated by surgeons from world-class institutions. 3D reconstructions with real-time operative footage — excellent for understanding complex HPB and transplant procedures.</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://teachmeanatomy.info" target="_blank" rel="noopener noreferrer">
+            <span class="link-icon">🧠</span>
+            <span class="link-text">
+              <strong>TeachMeAnatomy</strong>
+              <span>Free, comprehensive anatomy resource with excellent surgical relevance. Concise articles, diagrams, and clinical correlations. Ideal for FRCS revision.</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://radiopaedia.org" target="_blank" rel="noopener noreferrer">
+            <span class="link-icon">🩻</span>
+            <span class="link-text">
+              <strong>Radiopaedia</strong>
+              <span>Collaborative radiology wiki with thousands of annotated cases. Essential for correlating surgical anatomy with cross-sectional imaging.</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://aclandanatomy.com" target="_blank" rel="noopener noreferrer">
+            <span class="link-icon">🎥</span>
+            <span class="link-text">
+              <strong>Acland's Video Atlas of Human Anatomy</strong>
+              <span>Rotating cadaveric dissection videos showing real anatomical relationships in three dimensions. Subscription required but widely available via NHS OpenAthens.</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.imaios.com/en/e-anatomy" target="_blank" rel="noopener noreferrer">
+            <span class="link-icon">🖥️</span>
+            <span class="link-text">
+              <strong>e-Anatomy (IMAIOS)</strong>
+              <span>High-resolution cross-sectional atlas with CT/MRI labelling. Excellent for pre-operative planning and understanding segmental anatomy.</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.rcseng.ac.uk/library-and-publications/library/" target="_blank" rel="noopener noreferrer">
+            <span class="link-icon">🏛️</span>
+            <span class="link-text">
+              <strong>RCS England Library &amp; e-Resources</strong>
+              <span>Access to surgical journals, e-books, and databases including UpToDate and ClinicalKey via RCS membership.</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.touchsurgery.com" target="_blank" rel="noopener noreferrer">
+            <span class="link-icon">📱</span>
+            <span class="link-text">
+              <strong>Touch Surgery</strong>
+              <span>Interactive surgical simulation app. Step-by-step walkthroughs of common procedures. Useful for trainees preparing for cases.</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://surgicaljournals.com" target="_blank" rel="noopener noreferrer">
+            <span class="link-icon">📖</span>
+            <span class="link-text">
+              <strong>Surgical Journals — Key HPB Publications</strong>
+              <span>HPB (Oxford), Annals of Surgery, BJS, JAMA Surgery, Surgery, JACS, Annals of Surgical Oncology.</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="disclaimer">
+        <strong>⚠️ Disclaimer:</strong> The consent checklists on this page are provided as educational reference material only. They do not constitute medical advice and are not a substitute for individual clinical judgement. Always consult local protocols, national guidelines, and individual patient circumstances when obtaining informed consent. Video links are curated from publicly available sources and inclusion does not constitute endorsement.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Daniel Liu &middot; <a href="/">Home</a> &middot; <a href="/blog/">Blog</a></p>
+  </footer>
+</body>
+</html>
