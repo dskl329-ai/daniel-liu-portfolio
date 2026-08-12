@@ -761,6 +761,21 @@
       border-top: 1px solid var(--border);
     }
 
+    footer .footer-coffee {
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+    }
+    footer .footer-coffee a {
+      color: var(--text-secondary);
+      opacity: 0.65;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    footer .footer-coffee a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       .skip-link { z-index: 10001; }
@@ -1392,6 +1407,7 @@
   <footer>
     <div class="container">
       <p>&copy; 2026 Daniel Si Kit Liu. Content reflects position as of July 2026.</p>
+      <p class="footer-coffee"><a href="https://buymeacoffee.com/drdanliu" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a></p>
     </div>
   </footer>
 
