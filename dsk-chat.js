@@ -93,7 +93,7 @@
 
   function stopPolling() {
     if (pollTimer) {
-      clearInterval(pollTimer);
+      clearTimeout(pollTimer);
       pollTimer = null;
     }
   }
@@ -102,8 +102,9 @@
     if (!sessionId) return;
     stopPolling();
     pollStartTime = Date.now();
+    let delay = POLL_INTERVAL_MS;
 
-    pollTimer = setInterval(async () => {
+    const tick = async () => {
       // Timeout after POLL_TIMEOUT_MS
       if (Date.now() - pollStartTime > POLL_TIMEOUT_MS) {
         stopPolling();
@@ -128,13 +129,18 @@
             inputEl.placeholder = 'Ask another question...';
           }
           inputEl.maxLength = 500;
-        } else if (!data.awaitingDan && awaitingDan) {
-          // Dan hasn't replied yet, stop polling if we timed out
+          return;
         }
       } catch (e) {
         // Silently retry
       }
-    }, POLL_INTERVAL_MS);
+
+      // Adaptive backoff: 8s -> 16s -> 24s -> 30s cap (~19 requests per 10 min instead of ~75)
+      delay = Math.min(delay + POLL_INTERVAL_MS, 30000);
+      pollTimer = setTimeout(tick, delay);
+    };
+
+    pollTimer = setTimeout(tick, delay);
   }
 
   // ── API ──────────────────────────────────────────────────────────
