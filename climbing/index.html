@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Climbing — Route Topo Translations — Daniel Liu</title>
+  <meta name="description" content="English translations of climbing route topos — originally published in another language — kept alongside the original sheets for visiting climbers.">
+  <link rel="canonical" href="https://danskliu.com/climbing/">
+  <meta property="og:title" content="Climbing — Route Topo Translations">
+  <meta property="og:description" content="English translations of climbing route topos, with the original sheets alongside.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <style>
+    /* ── Climbing section: clean, cool, its own layout. Page rules override base.css. ── */
+    :root {
+      --max-width: 1040px;
+      --spacing-lg: 3.5rem;
+      --spacing-xl: 5rem;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f5f7f9;
+      --bg-card: #ffffff;
+      --text-primary: #0f1720;
+      --text-secondary: #57626f;
+      --accent: #2e5c78;
+      --accent-light: #e9f1f6;
+      --border: #e3e8ee;
+      --radius: 6px;
+      --shadow-sm: 0 1px 2px rgba(16,32,48,0.06);
+      --shadow-md: 0 6px 18px rgba(16,32,48,0.08);
+      --shadow-lg: 0 14px 40px rgba(16,32,48,0.12);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #0e1116;
+        --bg-secondary: #141a21;
+        --bg-card: #161b22;
+        --text-primary: #e9eef4;
+        --text-secondary: #9aa6b3;
+        --accent: #7fb8da;
+        --accent-light: #152530;
+        --border: #232b34;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+        --shadow-md: 0 6px 18px rgba(0,0,0,0.5);
+        --shadow-lg: 0 14px 40px rgba(0,0,0,0.6);
+      }
+    }
+
+    body { font-family: 'Alegreya Sans', Optima, -apple-system, system-ui, sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Alegreya Sans', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-sm); }
+
+    nav.top { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--bg-primary) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 var(--spacing-sm); }
+    nav.top .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: var(--max-width); margin: 0 auto; height: 64px; }
+    nav.top .logo { font-size: 1rem; font-weight: 800; letter-spacing: 0.02em; color: var(--text-primary); text-decoration: none; text-transform: uppercase; }
+    nav.top .back { font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: var(--transition); }
+    nav.top .back:hover { color: var(--text-primary); }
+
+    .hero { position: relative; overflow: hidden; background: var(--bg-secondary); border-bottom: 1px solid var(--border); }
+    .hero .contour { position: absolute; inset: 0; opacity: 0.6; color: var(--border); }
+    .hero .inner { position: relative; max-width: var(--max-width); margin: 0 auto; padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-lg); text-align: center; }
+    .hero .kicker { text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.72rem; font-weight: 800; color: var(--accent); margin-bottom: 0.75rem; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.02; margin-bottom: 0.75rem; }
+    .hero h1 .thin { display: block; font-size: 0.4em; font-weight: 500; letter-spacing: 0.01em; color: var(--text-secondary); margin-top: 0.6rem; text-transform: none; }
+    .hero p { max-width: 620px; margin: 0 auto; color: var(--text-secondary); font-size: 1.02rem; line-height: 1.6; }
+    .hero .rule { width: 64px; height: 4px; background: var(--accent); margin: 1.5rem auto 0; border-radius: 2px; }
+
+    .note { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: var(--spacing-lg) 0; box-shadow: var(--shadow-sm); }
+    .note h3 { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--text-primary); margin-bottom: 0.4rem; }
+    .note p { font-size: 0.93rem; color: var(--text-secondary); margin: 0 0 0.6rem; line-height: 1.65; }
+    .note p:last-child { margin-bottom: 0; }
+    .note a { color: var(--accent); }
+
+    /* Area grouping */
+    .area { margin-bottom: var(--spacing-xl); }
+    .area-title { font-size: 0.95rem; letter-spacing: 0.1em; color: var(--text-primary); margin-bottom: var(--spacing-md); padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-primary); display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; }
+    .area-title span { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; color: var(--text-secondary); text-transform: none; }
+
+    /* Route card */
+    .route { display: grid; grid-template-columns: 300px 1fr; gap: var(--spacing-md); align-items: start; padding: var(--spacing-md) 0; border-top: 1px solid var(--border); }
+    .route:first-of-type { border-top: none; padding-top: 0; }
+    @media (max-width: 760px) { .route { grid-template-columns: 1fr; } }
+
+    .topo-fig { margin: 0; }
+    .topo-fig a { display: block; }
+    .topo-fig img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); background: #fff; }
+    .topo-fig figcaption { font-size: 0.74rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.45; }
+
+    .route-head { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.3rem; }
+    .route-head h2 { font-size: clamp(1.35rem, 3.2vw, 1.9rem); line-height: 1.05; margin: 0; }
+    .grade-badge { font-weight: 800; font-size: 0.85rem; color: #fff; background: var(--accent); padding: 0.22rem 0.65rem; border-radius: 999px; letter-spacing: 0.02em; }
+    .route-loc { font-size: 0.86rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.9rem; }
+    .blurb { font-size: 0.97rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--spacing-sm); }
+    .blurb strong { color: var(--text-primary); }
+
+    .dl-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.4rem; }
+    .btn { display: inline-block; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; padding: 0.65rem 1.15rem; border-radius: var(--radius); border: 1px solid var(--accent); color: #fff; background: var(--accent); transition: var(--transition); }
+    .btn:hover { opacity: 0.85; }
+    .btn.ghost { background: transparent; color: var(--accent); }
+    .btn.ghost:hover { background: var(--accent-light); opacity: 1; }
+
+    .credit { font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.9rem; line-height: 1.55; border-top: 1px solid var(--border); padding-top: 0.6rem; }
+    .credit a { color: var(--accent); }
+
+    .src-foot { font-size: 0.8rem; color: var(--text-secondary); border-top: 2px solid var(--text-primary); padding-top: 0.9rem; line-height: 1.6; }
+    .src-foot a { color: var(--accent); }
+
+    footer { border-top: 1px solid var(--border); margin-top: var(--spacing-xl); padding: var(--spacing-md) 0; text-align: center; font-size: 0.82rem; color: var(--text-secondary); }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #fff; padding: 8px 16px; z-index: 200; }
+    .skip-link:focus { top: 0; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav class="top">
+    <div class="nav-inner">
+      <a href="/" class="logo">Daniel Liu</a>
+      <a href="/" class="back">← Home</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <svg class="contour" viewBox="0 0 1200 320" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M0 250 C 150 200, 300 280, 450 230 S 750 160, 900 210 S 1100 280, 1200 240"/>
+        <path d="M0 280 C 160 240, 320 310, 480 265 S 780 200, 940 250 S 1120 300, 1200 275"/>
+        <path d="M0 210 C 140 165, 290 235, 440 190 S 730 120, 880 168 S 1090 235, 1200 200"/>
+        <path d="M0 170 C 130 130, 280 195, 430 152 S 720 88, 870 130 S 1080 190, 1200 158"/>
+        <path d="M0 130 C 120 96, 270 156, 420 118 S 710 58, 860 96 S 1070 148, 1200 118"/>
+      </g>
+    </svg>
+    <div class="inner">
+      <div class="kicker">Personal · Climbing</div>
+      <h1>Climbing<span class="thin">Route topos, translated into English</span></h1>
+      <div class="rule"></div>
+      <p style="margin-top:1.25rem;">Climbing information for many areas exists only in the local language. This is where I put English translations of topo sheets from trips, with the original alongside.</p>
+    </div>
+  </header>
+
+  <main class="container" id="main-content">
+
+    <div class="note">
+      <h3>About these translations</h3>
+      <p>Plenty of good climbing has little or nothing written about it in English — the route information sits in Catalan, Spanish, Italian or French topo sheets that most visitors can’t read. So, where I’ve used them, I translate them.</p>
+      <p>Each entry keeps the original route names, grades, protection details and line notes exactly as printed, with the original sheet alongside it. Download the English PDF for the full route, or open the original to see it in context. Entries are added as trips happen.</p>
+      <p>Translations by <strong>DeepSeek V4.1</strong>, prepared on behalf of D. S. K. Liu. Original topo sheets and photographs remain the property of their authors and are reused under their stated licence (linked per route).</p>
+    </div>
+
+    <section class="area">
+      <h2 class="area-title">Serrat de la Pastereta <span>Collbató · Montserrat</span></h2>
+
+      <!-- ================= VIATGE APATXE ================= -->
+      <article class="route" id="viatge-apatxe">
+        <figure class="topo-fig">
+          <a href="viatge-apatxe-EN.pdf" title="Open the English topo (PDF)">
+            <img src="img/viatge-apatxe-topo.jpg" alt="Original Catalan topo of Viatge Apatxe, Serrat de la Pastereta, with the route line and belays R0–R4" loading="lazy">
+          </a>
+          <figcaption>Original topo with the route line and belays R0–R4.</figcaption>
+        </figure>
+
+        <div class="route-body">
+          <div class="route-head">
+            <h2>Viatge Apatxe</h2>
+            <span class="grade-badge">6b</span>
+          </div>
+          <div class="route-loc">West face · 100 m · 4 pitches</div>
+          <p class="blurb">A fun, well-protected sport line on the west face, climbing the panel to the left of <em>El Kraken</em>. Four pitches plus a short approach scramble, on varied, pocketed rock up to <strong>6b</strong> (obligatory 6a). Fully bolted — 11 quickdraws. West-facing, so it’s a good target for warmer mornings.</p>
+          <div class="dl-row">
+            <a class="btn" href="viatge-apatxe-EN.pdf">Download English topo (PDF)</a>
+            <a class="btn ghost" href="https://escalatroncs.com/wp-content/uploads/2011/06/vaitge_apatxe.pdf" target="_blank" rel="noopener">View original (Catalan)</a>
+          </div>
+          <p class="credit">English translation by DeepSeek V4.1, prepared on behalf of D. S. K. Liu. Original topo © Escalatroncs, <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">CC BY-NC 3.0</a>.</p>
+        </div>
+      </article>
+
+      <!-- ================= DIEDRE BONINGTON ================= -->
+      <article class="route" id="diedre-bonington">
+        <figure class="topo-fig">
+          <a href="diedre-bonington-EN.pdf" title="Open the English topo (PDF)">
+            <img src="img/diedre-bonington-topo.jpg" alt="Original Catalan topo of Diedre Bonington, Serrat de la Pastereta, with the route line and belays R1–R5" loading="lazy">
+          </a>
+          <figcaption>Original topo with the route line and belays R1–R5.</figcaption>
+        </figure>
+
+        <div class="route-body">
+          <div class="route-head">
+            <h2>Diedre Bonington</h2>
+            <span class="grade-badge">V</span>
+          </div>
+          <div class="route-loc">West face · 130 m · 4 pitches</div>
+          <p class="blurb">Despite the name, this is essentially <strong>slab climbing</strong> — only the final pitch is true dihedral. A continuous, accessible <strong>130 m at grade V</strong> across four pitches, semi-equipped with bolts and one piton (7 quickdraws). A pleasant step up from the neighbouring <em>Funció Clorofíl·lica</em>.</p>
+          <div class="dl-row">
+            <a class="btn" href="diedre-bonington-EN.pdf">Download English topo (PDF)</a>
+            <a class="btn ghost" href="https://escalatroncs.com/" target="_blank" rel="noopener">View original (Catalan)</a>
+          </div>
+          <p class="credit">English translation by DeepSeek V4.1, prepared on behalf of D. S. K. Liu. Original topo © Escalatroncs, <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">CC BY-NC 3.0</a>.</p>
+        </div>
+      </article>
+    </section>
+
+    <p class="src-foot">Route names, grades, protection and place names are kept as printed in the original topo. Climbing is dangerous — always cross-check the original sheet, a current guidebook and local conditions before you climb. These translations are a reading aid, not a substitute for one.</p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Daniel Liu · <a href="/">Home</a> · <a href="/resources/">Resources</a> · <a href="/blog/">Blog</a></p>
+    </div>
+  </footer>
+</body>
+</html>
