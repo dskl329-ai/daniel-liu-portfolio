@@ -73,6 +73,7 @@
   </script>
     <link rel="preload" as="style" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="preload" as="image" href="img/hero-ward.jpg" fetchpriority="high">
   <style>
     /* Page-specific layout tokens (shared tokens live in /assets/css/base.css) */
     :root {
@@ -197,8 +198,8 @@
       padding: var(--spacing-xl) var(--spacing-md);
       padding-top: calc(64px + var(--spacing-lg));
       background:
-        radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-light) 0%, transparent 60%),
-        linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        linear-gradient(180deg, rgba(244,244,240,0.44) 0%, rgba(244,244,240,0.60) 45%, var(--bg-primary) 100%),
+        url("img/hero-ward.jpg") center 32% / cover no-repeat;
       border-bottom: 1px solid var(--border);
       position: relative;
     }
@@ -210,7 +211,7 @@
       background-image:
         radial-gradient(circle at 20% 80%, var(--accent-light) 0%, transparent 25%),
         radial-gradient(circle at 80% 20%, var(--accent-light) 0%, transparent 20%);
-      opacity: 0.6;
+      opacity: 0.28;
       pointer-events: none;
     }
 
@@ -748,7 +749,9 @@
     /* ── Dark mode (page-specific adjustments — tokens & button live in base.css) ── */
     @media (prefers-color-scheme: dark) {
       .hero {
-        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        background:
+          linear-gradient(180deg, rgba(15,17,23,0.66) 0%, rgba(15,17,23,0.80) 45%, var(--bg-primary) 100%),
+          url("img/hero-ward.jpg") center 32% / cover no-repeat;
       }
       a { color: var(--accent); }
       .pub-journal a { color: var(--accent); }
